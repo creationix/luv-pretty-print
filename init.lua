@@ -18,6 +18,15 @@ limitations under the License.
 
 -- Luv port by Tim Caswell <tim@creationix.com>
 
+local exports = {}
+exports.name = "luvit/pretty-print"
+exports.version = "1.0.3"
+exports.homepage = "https://github.com/luvit/luvit/blob/master/deps/pretty-print.lua"
+exports.description = "A lua value pretty printer and colorizer for terminals."
+exports.tags = {"colors", "tty"}
+exports.license = "Apache 2"
+exports.author = { name = "Tim Caswell" }
+
 local uv = require('luv')
 
 local prettyPrint, dump, strip, color, colorize, loadColors
@@ -338,16 +347,16 @@ else
   uv.pipe_open(stderr, 2)
 end
 
-return {
-  loadColors = loadColors,
-  theme = theme,
-  print = print,
-  prettyPrint = prettyPrint,
-  dump = dump,
-  color = color,
-  colorize = colorize,
-  stdin = stdin,
-  stdout = stdout,
-  stderr = stderr,
-  strip = strip,
-}
+exports.loadColors = loadColors
+exports.theme = theme
+exports.print = print
+exports.prettyPrint = prettyPrint
+exports.dump = dump
+exports.color = color
+exports.colorize = colorize
+exports.stdin = stdin
+exports.stdout = stdout
+exports.stderr = stderr
+exports.strip = strip
+
+return exports
